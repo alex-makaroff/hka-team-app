@@ -4,8 +4,6 @@ import UserInfo from "./components/userInfo/UserInfo";
 import avatar from './images/baseAvatar.png'
 import coin from './images/coin.png'
 
-we
-
 const App = () => {
     return(
             <div className="mainContainer">
