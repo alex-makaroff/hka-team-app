@@ -9,7 +9,9 @@ const App = () => {
             <div className="mainContainer">
                 <div className="up-side">
                     <UserInfo
+
                         avatar={avatar}
+                        avata1r={avatar}
                         coin={coin}
                         balance={100}
                         name={'parallax_i'}
