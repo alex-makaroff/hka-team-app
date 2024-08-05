@@ -1,0 +1,10 @@
+.button {
+    background-image: url("../../images/buttonBackground.png");
+    background-size: 120px 120px;
+    color: white;
+    border: none;
+    font-weight: bold;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
