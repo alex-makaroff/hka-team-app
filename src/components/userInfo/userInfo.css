@@ -1,4 +1,4 @@
-.container {
+.userinfo-container {
     color: white;
     font-weight: bold;
     display: flex;
@@ -14,7 +14,7 @@
 }
 
 .user-avatar img {
-    width: 40px;
+    width: 50px;
 }
 
 .change-avatar {
@@ -26,7 +26,7 @@
 .user-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .user-name {
@@ -38,6 +38,7 @@
     font-size: 21px;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .user-balance img {

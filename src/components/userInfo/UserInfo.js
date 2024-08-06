@@ -3,7 +3,7 @@ import './userInfo.css'
 
 const UserInfo = (props) => {
     return(
-        <div className="container">
+        <div className="userinfo-container">
             <div className="user-avatar">
                 <img  src={props.avatar} alt="не фартануло, братишка"/>
                 <p className="change-avatar">поменять аву</p>

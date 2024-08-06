@@ -6,7 +6,10 @@ const Button = (props) => {
         width: `${props.width}px`,
         height: `${props.height}px`,
         fontSize: `${props.fontSize}px`,
-        borderRadius: `${props.borderRadius}px`
+        borderRadius: `${props.borderRadius}px`,
+        marginBottom: `${props.marginBottom}px`,
+        backgroundSize: `${props.backgroundSize}px`
+
     }
 
     return(
