@@ -11,11 +11,11 @@ import coin from './images/coin.png'
 import avatar from './images/avatar.png'
 import avatarGreen from './images/avatar-green.png'
 import cannabis from './images/cannabis.png'
-import cannabisGreen from './images/cannabis-green.png'
+// import cannabisGreen from './images/cannabis-green.png'
 import joint from './images/joint.png'
-import jointGreen from './images/joint-green.png'
+// import jointGreen from './images/joint-green.png'
 import fight from './images/fight.png'
-import fightGreen from './images/fight-green.png'
+// import fightGreen from './images/fight-green.png'
 
 const userList = [
     {
