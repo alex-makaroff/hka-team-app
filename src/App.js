@@ -3,10 +3,19 @@ import './app.css'
 import Button from "./components/button/Button";
 import UserInfo from "./components/userInfo/UserInfo";
 import LeaderBoard from "./components/leaderBoard/LeaderBoard";
+// import ProgressBar from "./components/progressBar/ProgressBar";
 import NavBar from "./components/navBar/NavBar";
 
-import avatar from './images/baseAvatar.png'
+import baseAvatar from './images/baseAvatar.png'
 import coin from './images/coin.png'
+import avatar from './images/avatar.png'
+import avatarGreen from './images/avatar-green.png'
+import cannabis from './images/cannabis.png'
+import cannabisGreen from './images/cannabis-green.png'
+import joint from './images/joint.png'
+import jointGreen from './images/joint-green.png'
+import fight from './images/fight.png'
+import fightGreen from './images/fight-green.png'
 
 const userList = [
     {
@@ -45,9 +54,7 @@ const App = () => {
             <div className="mainContainer">
                 <div className="up-side">
                     <UserInfo
-
-                        avatar={avatar}
-                        avata1r={avatar}
+                        avatar={baseAvatar}
                         coin={coin}
                         balance={100}
                         name={'parallax_i'}
@@ -91,7 +98,16 @@ const App = () => {
 
                 </div>
 
-                <NavBar/>
+                {/*<ProgressBar/>*/}
+                <div className="navbar-place">
+                    <NavBar
+                        avatar={avatarGreen}
+                        cannabis={cannabis}
+                        joint={joint}
+                        fight={fight}
+
+                    />
+                </div>
 
             </div>
 

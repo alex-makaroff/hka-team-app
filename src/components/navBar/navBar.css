@@ -1,0 +1,14 @@
+.navbar-container {
+    width: 330px;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 20px;
+}
+
+.navbar-container img {
+    width: 60px;
+    height: 60px;
+}
