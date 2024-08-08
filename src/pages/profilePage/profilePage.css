@@ -1,5 +1,10 @@
 .mainContainer {
-    padding: 50px;
+    margin-top: 10px;
+}
+
+.up-side-container {
+    display: flex;
+    justify-content: center;
 }
 
 .up-side {
@@ -8,6 +13,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 30px;
+    width: 330px;
 }
 
 .center-side {

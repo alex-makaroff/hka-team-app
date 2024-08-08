@@ -1,4 +1,5 @@
 import './button.css'
+import {Link} from "react-router-dom";
 
 const Button = (props) => {
 
@@ -12,11 +13,26 @@ const Button = (props) => {
 
     }
 
+    if (props.link) {
+        return(
+            <>
+                <Link to={props.link} style={{textDecoration: 'none'}}>
+                    <button style={styles} className="button">
+                        {props.text}
+                    </button>
+                </Link>
+            </>
+        )
+    }
     return(
-        <button style={styles} className="button">
-            {props.text}
-        </button>
+        <>
+            <button style={styles} className="button">
+                {props.text}
+            </button>
+        </>
     )
+
+
 }
 
 export default Button;

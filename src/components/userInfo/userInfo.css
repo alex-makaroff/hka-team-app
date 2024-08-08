@@ -3,6 +3,8 @@
     font-weight: bold;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+
 }
 
 .user-avatar {
@@ -19,7 +21,7 @@
 
 .change-avatar {
     margin: 0;
-    font-size: 9px;
+    font-size: 50%;
 
 }
 
