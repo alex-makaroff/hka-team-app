@@ -1,12 +1,102 @@
 import './friendsPage.css'
 
-import friends from '../../images/friends.png'
+import friendsImg from '../../images/friends.png'
+import coin from '../../images/coin.png'
+import premium from '../../images/premium.png'
+import Button from "../../components/button/Button";
 
-const FriendsPage = (props) => {
+const friendsList = [
+    {
+        id: 1,
+        name: 'друг',
+        isPremium: false,
+    },
+    {
+        id: 2,
+        name: 'друг1',
+        isPremium: false,
+    },
+    {
+        id: 3,
+        name: 'друг2',
+        isPremium: true,
+    },
+
+]
+
+const FriendsPage = () => {
     return(
-        <>
-            <img src={friends} alt='у тебя нет друзей'/>
-        </>
+        <div className="friends-page-container">
+            <img src={friendsImg} alt='у тебя нет друзей'/>
+            <div className="friends-invite-text">
+                <p>пригласи друга</p>
+                <p>получи бонусы</p>
+            </div>
+            <div className="friends-invite-info">
+                <div className="friends-invite-info-item">
+                    <div className="friends-invite-info-prize">
+                        +300
+                        <img src={coin} alt='нет картинки бля'/>
+                    </div>
+                    <div className="friends-invite-info-text">
+                        за обычного друга
+                    </div>
+                </div>
+                <div className="friends-invite-info-item">
+                    <div className="friends-invite-info-prize">
+                        +800
+                        <img src={coin} alt='нет картинки бля'/>
+                    </div>
+                    <div className="friends-invite-info-text">
+                        за друга мажора
+                        <img src={premium} alt='блин, картика потярялась'/>
+                    </div>
+                </div>
+
+            </div>
+
+            <Button
+                width={270}
+                height={45}
+                fontSize={21}
+                text={'поделиться ссылкой'}
+                borderRadius={10}
+                marginBottom={30}
+                backgroundSize={270}
+            />
+
+            <div className="friends">
+                <p>друзья:</p>
+                <div className='friends-list'>
+
+                    {friendsList.map((friend) => (
+                        <div className='friends-list-item'>
+                            <div className="friend-name">
+                                <p>{friend.name}</p>
+                                {friend.isPremium ? <img src={premium} alt='не грузануло картинку'/> : ''}
+                            </div>
+                            <div className="friend-cost">
+                                <p>{friend.isPremium ? '+800' : '+300'}</p>
+                                <img src={coin} alt='не грузануло картинку'/>
+                            </div>
+                        </div>
+                    ))}
+
+                </div>
+            </div>
+
+            <Button
+                width={200}
+                height={50}
+                fontSize={25}
+                text={'назад'}
+                borderRadius={10}
+                marginBottom={10}
+                backgroundSize={200}
+                link={'/'}
+            />
+
+        </div>
 
     )
 }
