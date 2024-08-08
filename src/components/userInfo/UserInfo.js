@@ -4,7 +4,7 @@ import './userInfo.css'
 const UserInfo = (props) => {
     return(
         <div className="userinfo-container">
-            <div className="user-avatar">
+            <div onClick={() => props.setModalActive(!props.modalActive)} className="user-avatar">
                 <img  src={props.avatar} alt="не фартануло, братишка"/>
                 <p className="change-avatar">поменять аву</p>
             </div>

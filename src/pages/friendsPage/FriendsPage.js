@@ -62,7 +62,6 @@ const FriendsPage = () => {
                 text={'поделиться ссылкой'}
                 borderRadius={10}
                 marginBottom={30}
-                backgroundSize={270}
             />
 
             <div className="friends">
@@ -92,7 +91,6 @@ const FriendsPage = () => {
                 text={'назад'}
                 borderRadius={10}
                 marginBottom={10}
-                backgroundSize={200}
                 link={'/'}
             />
 

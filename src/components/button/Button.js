@@ -9,7 +9,7 @@ const Button = (props) => {
         fontSize: `${props.fontSize}px`,
         borderRadius: `${props.borderRadius}px`,
         marginBottom: `${props.marginBottom}px`,
-        backgroundSize: `${props.backgroundSize}px`
+        backgroundSize: `${props.width}px`
 
     }
 
@@ -24,6 +24,17 @@ const Button = (props) => {
             </>
         )
     }
+
+    if (props.setModalActive) {
+        return(
+            <>
+                <button onClick={() => props.setModalActive(!props.modalActive)} style={styles} className="button">
+                    {props.text}
+                </button>
+            </>
+        )
+    }
+
     return(
         <>
             <button style={styles} className="button">

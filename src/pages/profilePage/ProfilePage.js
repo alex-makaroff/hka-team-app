@@ -5,6 +5,7 @@ import UserInfo from "../../components/userInfo/UserInfo";
 import LeaderBoard from "../../components/leaderBoard/LeaderBoard";
 // import ProgressBar from "../../components/progressBar/ProgressBar";
 import NavBar from "../../components/navBar/NavBar";
+import Modal from "../../components/modal/Modal";
 
 import baseAvatar from '../../images/baseAvatar.png'
 import coin from '../../images/coin.png'
@@ -15,6 +16,7 @@ import cannabis from '../../images/cannabis.png'
 import joint from '../../images/joint.png'
 // import jointGreen from '../../images/joint-green.png'
 import fight from '../../images/fight.png'
+import {useState} from "react";
 // import fightGreen from '../../images/fight-green.png'
 
 const userList = [
@@ -50,6 +52,10 @@ const userList = [
 
 
 const ProfilePage = () => {
+
+    const [activeDailyModal, setActiveDailyModal] = useState(false);
+    const [activeChangeAvaModal, setActiveChangeAvaModal] = useState(false);
+
     return(
         <div className="mainContainer">
             <div className="up-side-container">
@@ -59,6 +65,8 @@ const ProfilePage = () => {
                         coin={coin}
                         balance={100}
                         name={'parallax_i'}
+                        setModalActive={setActiveChangeAvaModal}
+                        modalActive={activeChangeAvaModal}
                     />
                     <Button
                         width={120}
@@ -66,7 +74,6 @@ const ProfilePage = () => {
                         fontSize={12}
                         text={'подключить кошелек'}
                         borderRadius={5}
-                        backgroundSize={120}
                     />
                 </div>
             </div>
@@ -80,7 +87,6 @@ const ProfilePage = () => {
                     text={'пригласить друга'}
                     borderRadius={10}
                     marginBottom={30}
-                    backgroundSize={330}
                     link={'/friends'}
                 />
 
@@ -91,7 +97,8 @@ const ProfilePage = () => {
                     text={'забрать ежедневный бонус'}
                     borderRadius={5}
                     marginBottom={30}
-                    backgroundSize={330}
+                    setModalActive={setActiveDailyModal}
+                    modalActive={activeDailyModal}
                 />
 
                 <LeaderBoard
@@ -109,6 +116,70 @@ const ProfilePage = () => {
 
                 />
             </div>
+
+            <Modal active={activeDailyModal} setActive={setActiveDailyModal} >
+                <div className='daily-reward-container'>
+                    <div className="daily-reward-list">
+                        <div className='daily-reward-item'></div>
+                        <div className='daily-reward-item'></div>
+                        <div className='daily-reward-item'></div>
+                        <div className='daily-reward-item'></div>
+
+                        <div className='daily-reward-item'></div>
+                        <div className='daily-reward-item'></div>
+                        <div className='daily-reward-item'></div>
+                        <div className='daily-reward-item'></div>
+
+                        <div className='daily-reward-item'></div>
+                        <div className='daily-reward-item'></div>
+                        <div className='daily-reward-item'></div>
+                        <div className='daily-reward-item'></div>
+
+                        <div className='daily-reward-item'></div>
+                        <div className='daily-reward-item'></div>
+                        <div className='daily-reward-item'></div>
+                        <div className='daily-reward-item'></div>
+                    </div>
+
+                    <Button
+                        width={200}
+                        height={45}
+                        fontSize={25}
+                        text={'назад'}
+                        borderRadius={10}
+                        setModalActive={setActiveDailyModal}
+                        modalActive={activeDailyModal}
+                    />
+                </div>
+            </Modal>
+
+            <Modal active={activeChangeAvaModal} setActive={setActiveChangeAvaModal} >
+                <div className='change-ava-container'>
+                    <div className='smf'>
+                        <div className="ava-list">
+                            <div className='change-ava-item'></div>
+                            <div className='change-ava-item'></div>
+
+                            <div className='change-ava-item'></div>
+                            <div className='change-ava-item'></div>
+
+                            <div className='change-ava-item'></div>
+                            <div className='change-ava-item'></div>
+                        </div>
+                    </div>
+
+
+                    <Button
+                        width={200}
+                        height={45}
+                        fontSize={25}
+                        text={'назад'}
+                        borderRadius={10}
+                        setModalActive={setActiveChangeAvaModal}
+                        modalActive={activeChangeAvaModal}
+                    />
+                </div>
+            </Modal>
 
         </div>
 
