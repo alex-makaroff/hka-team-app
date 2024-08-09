@@ -1,0 +1,20 @@
+.shisha-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shisha-page-content {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 700px;
+}
+
+
+.score {
+    font-size: 50px;
+    font-weight: bold;
+}

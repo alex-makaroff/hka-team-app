@@ -35,6 +35,16 @@ const Button = (props) => {
         )
     }
 
+    if (props.onClick) {
+        return(
+            <>
+                <button onClick={props.onClick} style={styles} className="button">
+                    {props.text}
+                </button>
+            </>
+        )
+    }
+
     return(
         <>
             <button style={styles} className="button">

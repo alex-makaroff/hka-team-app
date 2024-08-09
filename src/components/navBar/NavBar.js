@@ -8,9 +8,17 @@ const NavBar = (props) => {
             <Link to="/">
                 <img src={props.avatar} alt="Avatar"/>
             </Link>
-            <img src={props.cannabis} alt="cannabis"/>
-            <img src={props.joint} alt="joint"/>
-            <img src={props.fight} alt="fight"/>
+            <Link to="/shisha">
+                <img src={props.cannabis} alt="cannabis"/>
+            </Link>
+            <Link to="/joint">
+                <img src={props.joint} alt="joint"/>
+            </Link>
+            <Link to="/fight">
+                <img src={props.fight} alt="fight"/>
+            </Link>
+
+
         </div>
     )
 }

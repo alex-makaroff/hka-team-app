@@ -25,3 +25,13 @@
     background: url('../../images/shisha1.png') no-repeat ;
     background-size: 100%;
 }
+
+.test {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+}
+

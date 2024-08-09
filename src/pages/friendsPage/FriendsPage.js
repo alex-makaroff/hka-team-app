@@ -3,6 +3,7 @@ import './friendsPage.css'
 import friendsImg from '../../images/friends.png'
 import coin from '../../images/coin.png'
 import premium from '../../images/premium.png'
+
 import Button from "../../components/button/Button";
 
 const friendsList = [
