@@ -43,6 +43,7 @@ const userList = [
 ]
 
 
+const tg = window.Telegram.WebApp
 
 const ProfilePage = () => {
 
@@ -58,7 +59,7 @@ const ProfilePage = () => {
                             avatar={baseAvatar}
                             coin={coin}
                             balance={100}
-                            name={'parallax_i'}
+                            name={tg.initData.name | 'username'}
                             setModalActive={setActiveChangeAvaModal}
                             modalActive={activeChangeAvaModal}
                         />
