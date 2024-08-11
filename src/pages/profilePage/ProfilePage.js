@@ -59,7 +59,7 @@ const ProfilePage = () => {
                             avatar={baseAvatar}
                             coin={coin}
                             balance={100}
-                            name={tg.initData.name | 'username'}
+                            name={tg.initDataUnsafe.name | 'username'}
                             setModalActive={setActiveChangeAvaModal}
                             modalActive={activeChangeAvaModal}
                         />

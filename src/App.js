@@ -14,7 +14,7 @@ const App = () => {
     return(
         <>
             <div className="json-container">
-                {JSON.stringify(tg)}
+                {JSON.stringify(tg.initDataUnsafe)}
             </div>
 
             <Preloader/>
