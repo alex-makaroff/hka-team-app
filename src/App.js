@@ -9,11 +9,14 @@ import Preloader from "./components/preloader/Preloader";
 import FightPage from "./pages/fightPage/FightPage";
 
 const tg = window.Telegram.WebApp
-
+console.log(tg);
 const App = () => {
     return(
         <>
-            {JSON.stringify(tg)}
+            <div className="json-container">
+                {JSON.stringify(tg)}
+            </div>
+
             <Preloader/>
             <Routes>
                 <Route path="/" element={<ProfilePage/>} />
