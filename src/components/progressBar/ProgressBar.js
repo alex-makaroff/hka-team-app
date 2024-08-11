@@ -6,11 +6,11 @@ const ProgressBar = (props) => {
     const [ height, setHeight ] = useState(100);
      const onTouchStart = () => {
         if (height > 0) {
-             setHeight(height - 0.1);
+             setHeight(height - 1);
              props.setScore(props.score + 1);
         }
     }
-    const styles = { height: `${height}%`}
+    const styles = { height: `${height/10}%`}
 
     return (
         <div onTouchStart={onTouchStart} className="progress-bar-container">
