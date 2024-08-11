@@ -7,5 +7,6 @@
 body {
     background-image: url("images/background.png");
     font-family: "Roboto", sans-serif;
+    margin: 0;
 
 }

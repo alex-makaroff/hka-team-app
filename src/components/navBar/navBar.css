@@ -1,6 +1,6 @@
 .navbar-container {
-    width: 330px;
-    height: 80px;
+    width: 250px;
+    height: 60px;
     background: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
@@ -9,6 +9,6 @@
 }
 
 .navbar-container img {
-    width: 60px;
-    height: 60px;
+    width: 42px;
+    height: 42px;
 }

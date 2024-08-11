@@ -8,7 +8,7 @@
 }
 
 .user-avatar {
-    width: 55px;
+    width: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,12 +16,12 @@
 }
 
 .user-avatar img {
-    width: 50px;
+    width: 46px;
 }
 
 .change-avatar {
     margin: 0;
-    font-size: 50%;
+    font-size: 6px;
 
 }
 
@@ -32,20 +32,20 @@
 }
 
 .user-name {
-    font-size: 15px;
+    font-size: 11px;
     margin: 0;
 }
 
 .user-balance {
-    font-size: 21px;
+    font-size: 16px;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
 .user-balance img {
-    width: 25px;
-    height: 25px;
+    width: 23px;
+    height: 23px;
 }
 .user-balance p {
     margin: 0;

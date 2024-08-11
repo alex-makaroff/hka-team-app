@@ -68,9 +68,9 @@ const ProfilePage = () => {
                             modalActive={activeChangeAvaModal}
                         />
                         <Button
-                            width={120}
-                            height={40}
-                            fontSize={12}
+                            width={100}
+                            height={33}
+                            fontSize={8}
                             text={'подключить кошелек'}
                             borderRadius={5}
                         />
@@ -80,19 +80,19 @@ const ProfilePage = () => {
                 <div className="center-side">
 
                     <Button
-                        width={330}
-                        height={55}
-                        fontSize={24}
+                        width={250}
+                        height={42}
+                        fontSize={14}
                         text={'пригласить друга'}
                         borderRadius={10}
-                        marginBottom={30}
+                        marginBottom={25}
                         link={'/friends'}
                     />
 
                     <Button
-                        width={330}
-                        height={55}
-                        fontSize={20}
+                        width={250}
+                        height={42}
+                        fontSize={12}
                         text={'забрать ежедневный бонус'}
                         borderRadius={5}
                         marginBottom={30}
