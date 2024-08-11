@@ -4,7 +4,7 @@ import './ProgressBar.css'; // Вынесем стили в отдельный C
 const ProgressBar = (props) => {
 
     const [ height, setHeight ] = useState(100);
-     const onClick = () => {
+     const onTouchStart = () => {
         if (height > 0) {
              setHeight(height - 1);
              props.setScore(props.score + 1);
@@ -13,7 +13,7 @@ const ProgressBar = (props) => {
     const styles = { height: `${height}%`}
 
     return (
-        <div onClick={onClick} className="progress-bar-container">
+        <div onTouchStart={onTouchStart} className="progress-bar-container">
             <div className="progress-container">
                 <div  className="progress-clear"></div>
 
