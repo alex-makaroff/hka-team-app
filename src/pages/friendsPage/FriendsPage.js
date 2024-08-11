@@ -57,12 +57,12 @@ const FriendsPage = () => {
             </div>
 
             <Button
-                width={270}
-                height={45}
-                fontSize={21}
+                width={200}
+                height={35}
+                fontSize={15}
                 text={'поделиться ссылкой'}
                 borderRadius={10}
-                marginBottom={30}
+                marginBottom={20}
             />
 
             <div className="friends">
@@ -86,12 +86,12 @@ const FriendsPage = () => {
             </div>
 
             <Button
-                width={200}
-                height={50}
-                fontSize={25}
+                width={150}
+                height={35}
+                fontSize={18}
                 text={'назад'}
                 borderRadius={10}
-                marginBottom={10}
+                marginBottom={30}
                 link={'/'}
             />
 
