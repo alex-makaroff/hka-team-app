@@ -19,7 +19,7 @@ const ProgressBar = (props) => {
 
                 {height ? <div style={styles} className="progress-black"></div> :
                     <div className="progress-black">
-                        <div className='test'>
+                        <div className='time-to-end'>
                             8:00:00
                         </div>
                     </div>

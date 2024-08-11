@@ -2,8 +2,8 @@
 
 .jerremy-place {
     position: relative;
-    width: 370px;
-    height: 430px;
+    width: 280px;
+    height: 332px;
     background: rgba(63, 255, 0, 0.45);
     border-radius: 10px;
     background-size: 460px;
@@ -11,7 +11,7 @@
 
 .jerremy-place img{
     position: absolute;
-    width: 330px;
-    height: 420px;
+    width: 255px;
+    height: 320px;
     bottom: -14px;
 }

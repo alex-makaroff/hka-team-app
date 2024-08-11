@@ -6,6 +6,8 @@ import ShishaPage from "./pages/shishaPage/ShishaPage";
 import JointPage from "./pages/jointPage/JointPage";
 
 import Preloader from "./components/preloader/Preloader";
+import FightPage from "./pages/fightPage/FightPage";
+
 
 
 const App = () => {
@@ -17,6 +19,7 @@ const App = () => {
                 <Route path="/friends" element={<FriendsPage/>} />
                 <Route path="/shisha" element={<ShishaPage/>} />
                 <Route path="/joint" element={<JointPage/>} />
+                <Route path="/fight" element={<FightPage/>} />
             </Routes>
         </>
 

@@ -8,17 +8,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px 0;
 }
 
 .jerremy-container {
-    width: 400px;
-    height: 565px;
+    width: 305px;
+    height: 430px;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin-top: 20px;
+    margin: 45px 0;
 }

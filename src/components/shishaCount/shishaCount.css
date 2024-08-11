@@ -2,11 +2,13 @@
     color: white;
     display: flex;
     align-items: center;
-    font-size: 70px;
+    font-size: 52px;
     font-weight: bold;
+    margin-top: 55px;
+
 }
 
 .shisha-count img {
-    width: 60px;
-    height: 75px;
+    width: 45px;
+    height: 65px;
 }

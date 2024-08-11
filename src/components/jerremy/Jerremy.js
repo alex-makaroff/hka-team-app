@@ -15,22 +15,22 @@ const Jerremy = (props) => {
 
     if(props.frameNumber === 1 ) {
         jerremyPlaceStyles.backgroundImage = `url(${jerremyBg1})`
-        jerremyImgStyles.bottom = '-14px'
-        jerremyImgStyles.left = '30px'
+        jerremyImgStyles.bottom = '-12px'
+        jerremyImgStyles.left = '24px'
         jerremyImg = jerremy1
     }
 
     if(props.frameNumber === 2 ) {
         jerremyPlaceStyles.backgroundImage = `url(${jerremyBg2})`
-        jerremyImgStyles.bottom = '-14px'
-        jerremyImgStyles.left = '43px'
+        jerremyImgStyles.bottom = '-12px'
+        jerremyImgStyles.left = '30px'
         jerremyImg = jerremy2
     }
 
     if(props.frameNumber === 3 ) {
         jerremyPlaceStyles.backgroundImage = `url(${jerremyBg3})`
-        jerremyImgStyles.bottom = '-28px'
-        jerremyImgStyles.left = '20px'
+        jerremyImgStyles.bottom = '-22px'
+        jerremyImgStyles.left = '16px'
         jerremyImg = jerremy3
     }
 
