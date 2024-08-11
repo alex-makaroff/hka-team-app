@@ -45,6 +45,114 @@ const userList = [
         avatar: baseAvatar,
         coinsCount: 1
     },
+    {
+        id: 1,
+        name: 'кирюха',
+        avatar: baseAvatar,
+        coinsCount: 100_000_000
+    },
+
+    {
+        id: 2,
+        name: 'parallaxi',
+        avatar: baseAvatar,
+        coinsCount: 100_000_00
+    },
+
+    {
+        id: 3,
+        name: 'niko',
+        avatar: baseAvatar,
+        coinsCount: 100_000_0
+    },
+
+    {
+        id: 4,
+        name: 'ильхам',
+        avatar: baseAvatar,
+        coinsCount: 1
+    },
+    {
+        id: 1,
+        name: 'кирюха',
+        avatar: baseAvatar,
+        coinsCount: 100_000_000
+    },
+
+    {
+        id: 2,
+        name: 'parallaxi',
+        avatar: baseAvatar,
+        coinsCount: 100_000_00
+    },
+
+    {
+        id: 3,
+        name: 'niko',
+        avatar: baseAvatar,
+        coinsCount: 100_000_0
+    },
+
+    {
+        id: 4,
+        name: 'ильхам',
+        avatar: baseAvatar,
+        coinsCount: 1
+    },
+    {
+        id: 1,
+        name: 'кирюха',
+        avatar: baseAvatar,
+        coinsCount: 100_000_000
+    },
+
+    {
+        id: 2,
+        name: 'parallaxi',
+        avatar: baseAvatar,
+        coinsCount: 100_000_00
+    },
+
+    {
+        id: 3,
+        name: 'niko',
+        avatar: baseAvatar,
+        coinsCount: 100_000_0
+    },
+
+    {
+        id: 4,
+        name: 'ильхам',
+        avatar: baseAvatar,
+        coinsCount: 1
+    },
+    {
+        id: 1,
+        name: 'кирюха',
+        avatar: baseAvatar,
+        coinsCount: 100_000_000
+    },
+
+    {
+        id: 2,
+        name: 'parallaxi',
+        avatar: baseAvatar,
+        coinsCount: 100_000_00
+    },
+
+    {
+        id: 3,
+        name: 'niko',
+        avatar: baseAvatar,
+        coinsCount: 100_000_0
+    },
+
+    {
+        id: 4,
+        name: 'ильхам',
+        avatar: baseAvatar,
+        coinsCount: 1
+    },
 ]
 
 
