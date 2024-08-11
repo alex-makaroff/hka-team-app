@@ -30,7 +30,7 @@ const ShishaPage = () => {
                     />
 
                     <div className="score">
-                        {score}/100
+                        {score}/1000
                     </div>
                 </div>
 
