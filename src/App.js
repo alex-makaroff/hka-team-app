@@ -20,8 +20,7 @@ const App = () => {
     return(
         <>
             <div className="json-container">
-                {JSON.stringify('user', user)}
-                {JSON.stringify('username', user.username)}
+                {JSON.stringify(user)}
             </div>
 
             <Preloader/>
