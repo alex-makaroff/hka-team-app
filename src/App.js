@@ -21,6 +21,10 @@ const App = () => {
         <>
             <div className="json-container">
                 {JSON.stringify(user)}
+                <br/>
+                {JSON.stringify(user.id)}
+                <br/>
+                {JSON.stringify(user.username)}
             </div>
 
             <Preloader/>
