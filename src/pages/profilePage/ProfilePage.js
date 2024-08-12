@@ -51,7 +51,7 @@ const ProfilePage = () => {
     const [activeDailyModal, setActiveDailyModal] = useState(false);
     const [activeChangeAvaModal, setActiveChangeAvaModal] = useState(false);
 
-    const {tg, user} = useTelegram()
+    const {user} = useTelegram()
 
     return(
         <>
