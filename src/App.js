@@ -19,9 +19,10 @@ const App = () => {
 
     return(
         <>
-            {/*<div className="json-container">*/}
-            {/*    {JSON.stringify(user)}*/}
-            {/*</div>*/}
+            <div className="json-container">
+                {JSON.stringify('user', user)}
+                {JSON.stringify('username', user.username)}
+            </div>
 
             <Preloader/>
             <Routes>
