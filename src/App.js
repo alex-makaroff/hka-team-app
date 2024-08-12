@@ -7,15 +7,21 @@ import JointPage from "./pages/jointPage/JointPage";
 
 import Preloader from "./components/preloader/Preloader";
 import FightPage from "./pages/fightPage/FightPage";
+import {useTelegram} from "./hooks/useTelegram";
 
-const tg = window.Telegram.WebApp
-console.log(tg);
+
 const App = () => {
+
+    const {tg, user} = useTelegram();
+
+    console.log('tg', tg);
+    console.log('user', user);
+
     return(
         <>
-            <div className="json-container">
-                {JSON.stringify(tg.initDataUnsafe)}
-            </div>
+            {/*<div className="json-container">*/}
+            {/*    {JSON.stringify(user)}*/}
+            {/*</div>*/}
 
             <Preloader/>
             <Routes>

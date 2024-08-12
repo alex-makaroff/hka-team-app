@@ -16,6 +16,7 @@ import fight from '../../images/fight.png'
 
 
 import {useState} from "react";
+import {useTelegram} from "../../hooks/useTelegram";
 
 const userList = [
     {
@@ -43,12 +44,14 @@ const userList = [
 ]
 
 
-const tg = window.Telegram.WebApp
+
 
 const ProfilePage = () => {
 
     const [activeDailyModal, setActiveDailyModal] = useState(false);
     const [activeChangeAvaModal, setActiveChangeAvaModal] = useState(false);
+
+    const {tg, user} = useTelegram()
 
     return(
         <>
@@ -59,7 +62,7 @@ const ProfilePage = () => {
                             avatar={baseAvatar}
                             coin={coin}
                             balance={100}
-                            name={tg.initDataUnsafe.user.name | 'username'}
+                            name={user | 'username'}
                             setModalActive={setActiveChangeAvaModal}
                             modalActive={activeChangeAvaModal}
                         />
