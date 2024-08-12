@@ -62,7 +62,7 @@ const ProfilePage = () => {
                             avatar={baseAvatar}
                             coin={coin}
                             balance={100}
-                            name={user | 'username'}
+                            name={user.username| user?.first_name}
                             setModalActive={setActiveChangeAvaModal}
                             modalActive={activeChangeAvaModal}
                         />
