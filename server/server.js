@@ -11,7 +11,8 @@ const port = 5000;
 //     optionsSuccessStatus: 200
 // };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
 
 
 // Настройка подключения к базе данных
