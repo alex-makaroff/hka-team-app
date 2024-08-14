@@ -17,7 +17,7 @@ import fight from '../../images/fight.png'
 
 import {useEffect, useState} from "react";
 import axios from "axios";
-// import {useTelegram} from "../../hooks/useTelegram";
+import {useTelegram} from "../../hooks/useTelegram";
 
 const userList = [
     {
@@ -53,8 +53,8 @@ const ProfilePage = () => {
     const [activeChangeAvaModal, setActiveChangeAvaModal] = useState(false);
     const [user, setUser] = useState("usr");
 
-    // const {tgUser} = useTelegram()
-    const userId = user?.id || 6315284021;
+    const {tgUser} = useTelegram()
+    const userId = tgUser?.id || 6315284021;
 
     console.log('userId', userId);
 
