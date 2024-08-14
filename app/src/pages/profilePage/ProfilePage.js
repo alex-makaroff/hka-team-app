@@ -15,8 +15,9 @@ import fight from '../../images/fight.png'
 
 
 
-import {useState} from "react";
-import {useTelegram} from "../../hooks/useTelegram";
+import {useEffect, useState} from "react";
+import axios from "axios";
+// import {useTelegram} from "../../hooks/useTelegram";
 
 const userList = [
     {
@@ -50,8 +51,25 @@ const ProfilePage = () => {
 
     const [activeDailyModal, setActiveDailyModal] = useState(false);
     const [activeChangeAvaModal, setActiveChangeAvaModal] = useState(false);
+    const [user, setUser] = useState("usr");
 
-    const {user} = useTelegram()
+    // const {tgUser} = useTelegram()
+    const userId = user?.id || 6315284021;
+
+    console.log('userId', userId);
+
+    useEffect(() => {
+        axios.post(`http://localhost:5000/api/users/${userId}`)
+            .then(response => {
+                setUser(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, [userId]);
+
+    console.log('users', user);
+
 
     return(
         <>
@@ -61,8 +79,8 @@ const ProfilePage = () => {
                         <UserInfo
                             avatar={baseAvatar}
                             coin={coin}
-                            balance={100}
-                            name={user['first_name']}
+                            balance={user[0].money}
+                            name={user[0].user_name}
                             setModalActive={setActiveChangeAvaModal}
                             modalActive={activeChangeAvaModal}
                         />

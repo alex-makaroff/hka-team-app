@@ -14,18 +14,19 @@ const App = () => {
 
     const {tg, user} = useTelegram();
 
+    // tg.expand()
     console.log('tg', tg);
     console.log('user', user);
 
     return(
         <>
-            <div className="json-container">
-                {JSON.stringify(user)}
-                <br/>
-                {JSON.stringify(user.id)}
-                <br/>
-                {JSON.stringify(user.username)}
-            </div>
+            {/*<div className="json-container">*/}
+            {/*    {JSON.stringify(user)}*/}
+            {/*    <br/>*/}
+            {/*    {JSON.stringify(user.id)}*/}
+            {/*    <br/>*/}
+            {/*    {JSON.stringify(user.username)}*/}
+            {/*</div>*/}
 
             <Preloader/>
             <Routes>
