@@ -7,13 +7,11 @@ import joint from '../../images/joint.png'
 import fightGreen from '../../images/fight-green.png'
 
 import NavBar from "../../components/navBar/NavBar";
-import UsersList from "../../components/UsersList/UsersList";
 
 
 const FightPage = () => {
     return(
         <div className="fight-page-container">
-            <UsersList />
             <div className="fight-page-content">
                 В разработке
                 <img src={man} alt=""/>

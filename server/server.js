@@ -71,6 +71,30 @@ app.get('/api/leaderboard', async (req, res) => {
     }
 });
 
+app.get('/api/user/:id/shishaCount', async (req, res) => {
+    const {id} = req.params
+
+    try {
+        const result = await client.query('SELECT shisha_count FROM users WHERE tg_id = $1', [id]); // Запрос к базе данных
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+app.post('/api/user/:id/shishaCount', async (req, res) => {
+    const {id} = req.params
+
+    try {
+        const result = await client.query('UPDATE users SET shisha_count = shisha_count + 1 WHERE tg_id = $1 RETURNING shisha_count', [id]); // Запрос к базе данных
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
 
 
 app.listen(port, () => {
