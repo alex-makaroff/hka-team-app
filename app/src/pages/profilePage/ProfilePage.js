@@ -59,7 +59,7 @@ const ProfilePage = () => {
     console.log('userId', userId);
 
     useEffect(() => {
-        axios.post(`http://localhost:5000/api/users/${userId}`)
+        axios.get(`http://localhost:5000/api/users/${userId}`)
             .then(response => {
                 setUser(response.data);
             })

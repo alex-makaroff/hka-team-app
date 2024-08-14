@@ -8,7 +8,7 @@ const UsersList = () => {
 
     useEffect(() => {
         // Запрос к API для получения данных
-        axios.post('http://localhost:5000/api/users')
+        axios.get('http://localhost:5000/api/users')
             .then(response => {
                 setUsers(response.data); // Обновление состояния с данными
                 setLoading(false); // Снимаем состояние загрузки

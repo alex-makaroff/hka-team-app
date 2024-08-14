@@ -28,7 +28,7 @@ client.connect()
     .catch(err => console.error('Connection error', err.stack));
 
 // Пример API для получения данных из базы данных
-app.post('/api/users', async (req, res) => {
+app.get('/api/users', async (req, res) => {
     try {
         const result = await client.query('SELECT * FROM users');
         res.json(result.rows);
@@ -38,7 +38,7 @@ app.post('/api/users', async (req, res) => {
     }
 });
 
-app.post('/api/users/:id', async (req, res) => {
+app.get('/api/users/:id', async (req, res) => {
     const { id } = req.params
 
     try {
