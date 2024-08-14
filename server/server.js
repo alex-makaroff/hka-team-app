@@ -6,10 +6,10 @@ const cors = require('cors');
 const app = express();
 const port = 5000;
 
-const corsOptions = {
-    origin: 'http://localhost:3000', // URL твоего React-приложения
-    optionsSuccessStatus: 200
-};
+// const corsOptions = {
+//     origin: 'http://localhost:3000', // URL твоего React-приложения
+//     optionsSuccessStatus: 200
+// };
 
 app.use(cors(corsOptions));
 
