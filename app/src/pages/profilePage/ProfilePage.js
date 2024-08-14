@@ -19,56 +19,58 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {useTelegram} from "../../hooks/useTelegram";
 
-const userList = [
+
+const avatarList = [
     {
-        id: 1,
-        name: 'кирюха',
-        avatar: baseAvatar,
-        coinsCount: 100_000_000
+        name: 'без авы',
+        ava: baseAvatar,
     },
 
     {
-        id: 2,
-        name: 'parallaxi',
-        avatar: baseAvatar,
-        coinsCount: 100_000_00
+        name: 'ава бета-тестера',
+        ava: baseAvatar,
     },
 
     {
-        id: 3,
-        name: 'niko',
-        avatar: baseAvatar,
-        coinsCount: 100_000_0
+        name: 'крупная шишка',
+        ava: baseAvatar,
+    },
+    {
+        name: 'убитая джереми',
+        ava: baseAvatar,
     },
 
 
 ]
-
-
-
 
 const ProfilePage = () => {
 
     const [activeDailyModal, setActiveDailyModal] = useState(false);
     const [activeChangeAvaModal, setActiveChangeAvaModal] = useState(false);
     const [user, setUser] = useState("usr");
+    const [leaderboard, setLeaderboard] = useState([]);
 
     const {tgUser} = useTelegram()
-    const userId = tgUser?.id || 6315284021;
-
-    console.log('userId', userId);
-
+    const userId = tgUser?.id || 1072604443;
+    //6315284021
+    //1072604443
     useEffect(() => {
-        axios.get(`https://hkateam.online/api/users/${userId}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/api/user/${userId}`)
             .then(response => {
                 setUser(response.data);
             })
             .catch(error => {
                 console.error(error);
             });
-    }, [userId]);
 
-    console.log('users', user);
+        axios.get(`${process.env.REACT_APP_API_URL}/api/leaderboard`)
+            .then(response => {
+                setLeaderboard(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, [userId]);
 
 
     return(
@@ -118,7 +120,7 @@ const ProfilePage = () => {
                     />
 
                     <LeaderBoard
-                        userList={userList}
+                        userList={leaderboard}
                         coin={coin}
                     />
 
@@ -173,22 +175,32 @@ const ProfilePage = () => {
                     <div className='change-ava-container'>
                         <div className='smf'>
                             <div className="ava-list">
-                                <div className='change-ava-item'></div>
-                                <div className='change-ava-item'></div>
+                                {avatarList.map((avatar) => {
+                                    return(
+                                        <div className='change-ava-item'>
+                                            <img src={avatar.ava} alt="avatar" />
+                                            {avatar.name}
+                                            <Button
+                                                width={75}
+                                                height={15}
+                                                fontSize={8}
+                                                text={'использовать'}
+                                                borderRadius={5}
+                                            />
+                                        </div>
+                                    )
+                                })}
 
-                                <div className='change-ava-item'></div>
-                                <div className='change-ava-item'></div>
 
-                                <div className='change-ava-item'></div>
-                                <div className='change-ava-item'></div>
+
                             </div>
                         </div>
 
 
                         <Button
-                            width={200}
-                            height={45}
-                            fontSize={25}
+                            width={155}
+                            height={35}
+                            fontSize={20}
                             text={'назад'}
                             borderRadius={10}
                             setModalActive={setActiveChangeAvaModal}

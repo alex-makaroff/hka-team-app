@@ -55,16 +55,24 @@ p {
 
 .user {
     width: 100%;
+    padding: 0 3px;
     display: flex;
     margin-bottom: 5px;
+    align-items: center;
+}
+
+.current-user {
+    background-color: rgba(130, 255, 130, 0.66);
 }
 
 .name {
     margin-left: 15px;
     display: flex;
+    align-items: center;
 }
 
 .coin-count {
     margin-left: auto;
     display: flex;
+    align-items: center;
 }

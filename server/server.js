@@ -39,9 +39,8 @@ app.get('/api/users', async (req, res) => {
     }
 });
 
-app.get('/api/users/:id', async (req, res) => {
+app.get('/api/user/:id', async (req, res) => {
     const { id } = req.params
-
     try {
         const result = await client.query('SELECT * FROM users WHERE tg_id = $1', [id]); // Запрос к базе данных
         res.json(result.rows);
@@ -50,6 +49,29 @@ app.get('/api/users/:id', async (req, res) => {
         res.status(500).send('Server Error');
     }
 });
+
+app.get('/api/user/:id/friends', async (req, res) => {
+    const { id } = req.params
+    try {
+        const result = await client.query('SELECT * FROM users WHERE ref_code = $1', [id]); // Запрос к базе данных
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+app.get('/api/leaderboard', async (req, res) => {
+    try {
+        const result = await client.query('SELECT * FROM users  ORDER BY money DESC'); // Запрос к базе данных
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

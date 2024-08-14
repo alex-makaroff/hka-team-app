@@ -5,27 +5,27 @@ import coin from '../../images/coin.png'
 import premium from '../../images/premium.png'
 
 import Button from "../../components/button/Button";
-
-const friendsList = [
-    {
-        id: 1,
-        name: 'друг',
-        isPremium: false,
-    },
-    {
-        id: 2,
-        name: 'друг1',
-        isPremium: false,
-    },
-    {
-        id: 3,
-        name: 'друг2',
-        isPremium: true,
-    },
-
-]
+import {useEffect, useState} from "react";
+import axios from "axios";
+import {useTelegram} from "../../hooks/useTelegram";
 
 const FriendsPage = () => {
+
+    const [friends, setFriends] = useState([])
+
+    const {tgUser} = useTelegram()
+    const userId = tgUser?.id || 1072604443;
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_URL}/api/user/${userId}/friends`)
+            .then(response => {
+                setFriends(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, [userId]);
+
     return(
         <div className="friends-page-container">
             <img src={friendsImg} alt='у тебя нет друзей'/>
@@ -69,10 +69,10 @@ const FriendsPage = () => {
                 <p>друзья:</p>
                 <div className='friends-list'>
 
-                    {friendsList.map((friend) => (
+                    {friends.map((friend) => (
                         <div className='friends-list-item'>
                             <div className="friend-name">
-                                <p>{friend.name}</p>
+                                <p>{friend.user_name}</p>
                                 {friend.isPremium ? <img src={premium} alt='не грузануло картинку'/> : ''}
                             </div>
                             <div className="friend-cost">

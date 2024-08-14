@@ -1,7 +1,12 @@
 import './leaderBoard.css'
+import {useTelegram} from "../../hooks/useTelegram";
 
 
 const LeaderBoard = (props) => {
+
+    const {tgUser} = useTelegram()
+    const userId = tgUser?.id || 1072604443;
+
     return(
         <div className="leader-board-container">
             <p className="title">лидеры</p>
@@ -20,18 +25,18 @@ const LeaderBoard = (props) => {
 
                 </div>
                 {props.userList.map((user, index) => (
-                    <div key={index} className="user">
+                    <div key={index} className={Number(user.tg_id) === Number(userId) ? 'user current-user' : 'user'}>
 
-                        <p className="number">{user.id}</p>
+                        <p className="number">{index + 1}</p>
 
                         <p className="name">
-                            {user.name}
-                            <img src={user.avatar} alt="нет картинки - нет аватарки"/>
+                            {user.user_name}
+                            <img src={user?.avatar} alt="нет картинки - нет аватарки"/>
                         </p>
 
 
                         <p className="coin-count">
-                            {user.coinsCount}
+                            {user.money}
                             <img src={props.coin} alt="нет картинки - нет монетки"/>
                         </p>
 
