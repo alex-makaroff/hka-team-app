@@ -8,7 +8,7 @@ const UsersList = () => {
 
     useEffect(() => {
         // Запрос к API для получения данных
-        axios.get('http://89.223.126.50:5000/api/users')
+        axios.get('https://hkateam.online/api/users')
             .then(response => {
                 setUsers(response.data); // Обновление состояния с данными
                 setLoading(false); // Снимаем состояние загрузки
