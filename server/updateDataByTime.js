@@ -15,8 +15,8 @@ client.connect()
     .catch(err => console.error('Connection error', err.stack));
 
 
-// Запускаем задачу каждый день в 00:00 cron.schedule('0 0 * * *', async () => {
-cron.schedule('*/10 * * * * *', async () => {
+// Запускаем задачу каждый день в 00:00
+cron.schedule('0 0 * * *', async () => {
     console.log('Запуск обновления данных...');
 
     await updateDatabase();

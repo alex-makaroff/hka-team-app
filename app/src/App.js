@@ -9,6 +9,9 @@ import Preloader from "./components/preloader/Preloader";
 import FightPage from "./pages/fightPage/FightPage";
 import {useTelegram} from "./hooks/useTelegram";
 
+import { TonConnectUIProvider } from '@tonconnect/ui-react';
+import Header from './Header';
+
 
 const App = () => {
 
@@ -28,14 +31,18 @@ const App = () => {
             {/*    {JSON.stringify(user.username)}*/}
             {/*</div>*/}
 
-            <Preloader/>
-            <Routes>
-                <Route path="/" element={<ProfilePage/>} />
-                <Route path="/friends" element={<FriendsPage/>} />
-                <Route path="/shisha" element={<ShishaPage/>} />
-                <Route path="/joint" element={<JointPage/>} />
-                <Route path="/fight" element={<FightPage/>} />
-            </Routes>
+            {/*<Preloader/>*/}
+            {/*<Routes>*/}
+            {/*    <Route path="/" element={<ProfilePage/>} />*/}
+            {/*    <Route path="/friends" element={<FriendsPage/>} />*/}
+            {/*    <Route path="/shisha" element={<ShishaPage/>} />*/}
+            {/*    <Route path="/joint" element={<JointPage/>} />*/}
+            {/*    <Route path="/fight" element={<FightPage/>} />*/}
+            {/*</Routes>*/}
+            <TonConnectUIProvider manifestUrl="https://hkateam.online/tonconnect-manifest.json">
+                <Header
+                />
+            </TonConnectUIProvider>
         </>
 
     )
