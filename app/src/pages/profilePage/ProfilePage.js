@@ -49,15 +49,21 @@ const ProfilePage = () => {
     const [activeChangeAvaModal, setActiveChangeAvaModal] = useState(false);
     const [user, setUser] = useState("usr");
     const [leaderboard, setLeaderboard] = useState([]);
+    const [dailyRewardDay, setDailyRewardDay] = useState(1);
+    const [isDailyRewardCollected, setIsDailyRewardCollected] = useState(false);
+    const [money, setMoney] = useState(0);
+
 
     const {tgUser} = useTelegram()
     const userId = tgUser?.id || 1072604443;
     //6315284021
     //1072604443
+
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/api/user/${userId}`)
             .then(response => {
                 setUser(response.data);
+                setMoney(response.data[0].money);
             })
             .catch(error => {
                 console.error(error);
@@ -70,7 +76,30 @@ const ProfilePage = () => {
             .catch(error => {
                 console.error(error);
             });
+
+        axios.get(`${process.env.REACT_APP_API_URL}/api/user/${userId}/dailyRewardDay`)
+            .then(response => {
+                setDailyRewardDay(response.data[0].daily_reward_day);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        axios.get(`${process.env.REACT_APP_API_URL}/api/user/${userId}/isDailyRewardCollected`)
+            .then(response => {
+                setIsDailyRewardCollected(response.data[0].is_daily_reward_collected);
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }, [userId]);
+
+    const dailyArr = [
+        0, 0, 0, 0,
+        0, 0, 0, 0,
+        0, 0, 0, 0,
+        0, 0, 0, 0,
+    ]
 
 
     return(
@@ -81,7 +110,7 @@ const ProfilePage = () => {
                         <UserInfo
                             avatar={baseAvatar}
                             coin={coin}
-                            balance={user[0].money}
+                            balance={money}
                             name={user[0].user_name}
                             setModalActive={setActiveChangeAvaModal}
                             modalActive={activeChangeAvaModal}
@@ -138,25 +167,60 @@ const ProfilePage = () => {
                 <Modal active={activeDailyModal} setActive={setActiveDailyModal}>
                     <div className='daily-reward-container'>
                         <div className="daily-reward-list">
-                            <div className='daily-reward-item'></div>
-                            <div className='daily-reward-item'></div>
-                            <div className='daily-reward-item'></div>
-                            <div className='daily-reward-item'></div>
+                            {dailyArr.map((value, index) => {
 
-                            <div className='daily-reward-item'></div>
-                            <div className='daily-reward-item'></div>
-                            <div className='daily-reward-item'></div>
-                            <div className='daily-reward-item'></div>
+                                let classNames = 'daily-reward-item'
+                                const currentDay = index + 1
+                                let useOnClick = false
 
-                            <div className='daily-reward-item'></div>
-                            <div className='daily-reward-item'></div>
-                            <div className='daily-reward-item'></div>
-                            <div className='daily-reward-item'></div>
+                                if (currentDay < dailyRewardDay) {
+                                    classNames = 'daily-reward-item collected'
+                                }
 
-                            <div className='daily-reward-item'></div>
-                            <div className='daily-reward-item'></div>
-                            <div className='daily-reward-item'></div>
-                            <div className='daily-reward-item'></div>
+                                if (currentDay  === Number(dailyRewardDay) && !isDailyRewardCollected) {
+                                    classNames = 'daily-reward-item current'
+                                    useOnClick = true
+                                } else if (currentDay  === Number(dailyRewardDay) && isDailyRewardCollected) {
+                                    classNames = 'daily-reward-item collected'
+                                }
+
+
+
+                                const coinsReward = currentDay < 7 ? currentDay * 10 : 70
+
+                                const collect = () => {
+                                    setIsDailyRewardCollected(true)
+                                    setMoney(money + coinsReward)
+                                    axios.post(`${process.env.REACT_APP_API_URL}/api/user/${userId}/isDailyRewardCollected`)
+                                        .then(response => {
+                                            setIsDailyRewardCollected(response.data[0].is_daily_reward_collected);
+                                        })
+                                        .catch(error => {
+                                            console.error(error);
+                                        });
+                                    axios.post(`${process.env.REACT_APP_API_URL}/api/user/${userId}/addMoney/${coinsReward}`, {}, {
+                                        headers: {
+                                            Authorization: process.env.REACT_APP_REQ_TOKEN
+                                        }
+                                    })
+                                        .then(response => {
+                                            setMoney(response.data[0].money);
+                                        })
+                                        .catch(error => {
+                                            console.error(error);
+                                        });
+                                }
+
+                                return (
+                                    <div onClick={useOnClick ? collect : () => {} } className={classNames}>
+                                        <p className='days'>день {currentDay}</p>
+                                        <p className='reward'>
+                                            {coinsReward}
+                                            <img src={coin} alt='монета'/>
+                                        </p>
+                                    </div>
+                                )
+                            })}
                         </div>
 
                         <Button

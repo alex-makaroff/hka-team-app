@@ -13,16 +13,21 @@ import ShishaCount from "../../components/shishaCount/ShishaCount";
 import {useState} from "react";
 
 
-
 const ShishaPage = () => {
 
-    const [score, setScore] = useState(0);
+    const [score, setScore] = useState(0)
+    const [shishaCount, setShishaCount] = useState(0)
 
     return(
         <>
             <div className="shisha-page-container">
                 <div className="shisha-page-content">
-                    <ShishaCount/>
+                    <ShishaCount
+                    score={score}
+                    setScore={setScore}
+                    shishaCount={shishaCount}
+                    setShishaCount={ setShishaCount}
+                    />
 
                     <ProgressBar
                         setScore={setScore}

@@ -20,6 +20,8 @@ import image19 from '../../images/joint-green.png'
 import image20 from '../../images/premium.png'
 import image21 from '../../images/shisha.png'
 import image22 from '../../images/shisha1.png'
+import image23 from '../../images/dailyRewardBg.png'
+import image24 from '../../images/dailyRewardBg2.png'
 
 const images = [
     image1,
@@ -44,6 +46,8 @@ const images = [
     image20,
     image21,
     image22,
+    image23,
+    image24,
 ]
 
 const Preloader = () => {

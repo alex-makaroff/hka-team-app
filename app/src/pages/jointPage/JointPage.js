@@ -18,6 +18,7 @@ const JointPage = () => {
 
 
     const [frameNumber, setFrameNumber] = useState(1);
+    const [shishaCount, setShishaCount] = useState(0);
 
     function name() {
         if (frameNumber < 3) {
@@ -30,7 +31,10 @@ const JointPage = () => {
             <div className="joint-page-container">
 
                 <div className="joint-page-content">
-                    <ShishaCount/>
+                    <ShishaCount
+                        shishaCount={shishaCount}
+                        setShishaCount={setShishaCount}
+                    />
                     <div className="jerremy-container">
                         <Jerremy
                             frameNumber={frameNumber}

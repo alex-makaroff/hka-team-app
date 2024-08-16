@@ -36,8 +36,8 @@
 
 }
 .daily-reward-list {
-    width: 310px;
-    height: 330px;
+    width: 235px;
+    height: 250px;
     margin-bottom: 15px;
     display: flex;
     flex-direction: row;
@@ -47,11 +47,39 @@
 }
 
 .daily-reward-item {
-    width: 70px;
-    height: 70px;
-    background-color: rgba(0, 0, 0, 0.5);
+    width: 52px;
+    height: 52px;
+    background-image: url("../../images/dailyRewardBg.png");
+    background-size: 52px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
 }
+
+.days {
+    margin: 0;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.reward{
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+
+
+.reward img{
+    width: 15px;
+    height: 15px;
+    margin-left: 3px;
+}
+
 
 .change-ava-container {
     display: flex;
@@ -109,4 +137,14 @@
     width: 40px;
     height: 40px;
 
+}
+
+.collected {
+    background-image: url("../../images/dailyRewardBg2.png");
+}
+
+.current{
+    border: #00ff00 2px solid;
+    width: 49px;
+    height: 49px;
 }

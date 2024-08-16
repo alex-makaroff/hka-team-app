@@ -95,7 +95,58 @@ app.post('/api/user/:id/shishaCount', async (req, res) => {
     }
 });
 
+app.get('/api/user/:id/dailyRewardDay', async (req, res) => {
+    const {id} = req.params
 
+    try {
+        const result = await client.query('SELECT daily_reward_day FROM users WHERE tg_id = $1', [id]); // Запрос к базе данных
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+app.get('/api/user/:id/isDailyRewardCollected', async (req, res) => {
+    const {id} = req.params
+    try {
+        const result = await client.query('SELECT is_daily_reward_collected FROM users WHERE tg_id = $1', [id]); // Запрос к базе данных
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+app.post('/api/user/:id/isDailyRewardCollected', async (req, res) => {
+    const {id} = req.params
+
+    try {
+        const result = await client.query('UPDATE users SET is_daily_reward_collected = true WHERE tg_id = $1 RETURNING is_daily_reward_collected', [id]); // Запрос к базе данных
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+    app.post('/api/user/:id/addMoney/:moneyCount', async (req, res) => {
+    const {id, moneyCount} = req.params
+    const token = req.headers.authorization;
+
+    if(token !== process.env.REQ_TOKEN) {
+        res.status(401).send('Token Incorrect');
+        return
+    }
+
+    try {
+        const result = await client.query('UPDATE users SET money = money + $1 WHERE tg_id = $2 RETURNING money', [moneyCount, id]); // Запрос к базе данных
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

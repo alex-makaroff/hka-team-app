@@ -3,7 +3,7 @@ import './ProgressBar.css'; // Вынесем стили в отдельный C
 
 const ProgressBar = (props) => {
 
-    const [ height, setHeight ] = useState(100);
+    const [ height, setHeight ] = useState(1000);
      const onTouchStart = () => {
         if (height > 0) {
              setHeight(height - 1);

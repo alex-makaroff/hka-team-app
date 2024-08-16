@@ -1,14 +1,14 @@
 import './shishaCount.css'
 
 import shisha from '../../images/shisha.png'
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import axios from "axios";
 import {useTelegram} from "../../hooks/useTelegram";
 
 
 
-const ShishaCount = () => {
-    const [shishaCount, setShishaCount] = useState(0)
+const ShishaCount = ({score, setScore, shishaCount, setShishaCount}) => {
+
 
     const {tgUser} = useTelegram()
     const userId = tgUser?.id || 1072604443;
@@ -23,8 +23,10 @@ const ShishaCount = () => {
             });
     }, [userId]);
 
+    if (score === 1000) {
+        const optimisticShishaCount = shishaCount + 1
+        setShishaCount(optimisticShishaCount)
 
-    const addShisha = () => {
         axios.post(`${process.env.REACT_APP_API_URL}/api/user/${userId}/shishaCount`)
             .then(response => {
                 setShishaCount(response.data[0].shisha_count);
@@ -32,12 +34,14 @@ const ShishaCount = () => {
             .catch(error => {
                 console.error(error);
             });
+        setScore(0)
     }
+
 
     return(
         <>
             <div className="shisha-count">
-                <img onClick={addShisha} src={shisha} alt="shisha"/>
+                <img src={shisha} alt="shisha"/>
                 {shishaCount}
             </div>
         </>
