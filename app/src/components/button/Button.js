@@ -1,9 +1,12 @@
 import './button.css'
 import {Link} from "react-router-dom";
+import b from '../../images/btn-bg-black.png'
 
 const Button = (props) => {
 
-    const styles = {
+
+
+    let styles = {
         width: `${props.width}px`,
         height: `${props.height}px`,
         fontSize: `${props.fontSize}px`,
@@ -13,6 +16,20 @@ const Button = (props) => {
 
     }
 
+    const buttonTypeSettings = (buttonType) => {
+        if(buttonType === 'active') {
+            return {className:'active', disabled:false}
+        }
+        if(buttonType === 'using') {
+            return {className:'using', disabled:true}
+        }
+        if(buttonType === 'disable') {
+            return {className:'disable', disabled:true}
+        }
+    }
+
+
+
     if (props.link) {
         return(
             <>
@@ -21,6 +38,18 @@ const Button = (props) => {
                         {props.text}
                     </button>
                 </Link>
+            </>
+        )
+    }
+
+    if (props.href) {
+        return(
+            <>
+                <a href={props.href} style={{textDecoration: 'none'}}>
+                    <button style={styles} className="button">
+                        {props.text}
+                    </button>
+                </a>
             </>
         )
     }
@@ -38,7 +67,7 @@ const Button = (props) => {
     if (props.onClick) {
         return(
             <>
-                <button onClick={props.onClick} style={styles} className="button">
+                <button disabled={buttonTypeSettings(props.buttonType).disabled} onClick={props.onClick} style={styles} className={props.buttonType ? `button ${buttonTypeSettings(props.buttonType).className}` : "button"}>
                     {props.text}
                 </button>
             </>

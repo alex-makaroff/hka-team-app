@@ -1,0 +1,22 @@
+/*.button {*/
+/*    background-image: url("./images/buttonBackground.png");*/
+/*    color: white;*/
+/*    border: none;*/
+/*    font-weight: bold;*/
+/*    display:flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*}*/
+
+
+header div {
+    position: relative;
+    width: 100%;
+}
+
+header div {
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 300px;
+}

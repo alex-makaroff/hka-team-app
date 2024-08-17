@@ -130,7 +130,7 @@ app.post('/api/user/:id/isDailyRewardCollected', async (req, res) => {
     }
 });
 
-    app.post('/api/user/:id/addMoney/:moneyCount', async (req, res) => {
+app.post('/api/user/:id/addMoney/:moneyCount', async (req, res) => {
     const {id, moneyCount} = req.params
     const token = req.headers.authorization;
 
@@ -141,6 +141,30 @@ app.post('/api/user/:id/isDailyRewardCollected', async (req, res) => {
 
     try {
         const result = await client.query('UPDATE users SET money = money + $1 WHERE tg_id = $2 RETURNING money', [moneyCount, id]); // Запрос к базе данных
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+app.post('/api/user/:id/changeAva/:avaName', async (req, res) => {
+    const {id, avaName} = req.params
+
+    try {
+        const result = await client.query('UPDATE users SET avatar_name = $1 WHERE tg_id = $2 RETURNING avatar_name', [avaName, id]); // Запрос к базе данных
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+app.get('/api/user/:id/ava', async (req, res) => {
+    const {id} = req.params
+
+    try {
+        const result = await client.query('SELECT avatar_name FROM users WHERE tg_id = $1', [id]); // Запрос к базе данных
         res.json(result.rows);
     } catch (err) {
         console.error(err.message);

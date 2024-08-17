@@ -11,6 +11,9 @@ import {useTelegram} from "../../hooks/useTelegram";
 
 const FriendsPage = () => {
 
+    const shareUrl = 'https://t.me/HkaTeamTestBot'
+    const shareText = 'поделиться ссылкой'
+
     const [friends, setFriends] = useState([])
 
     const {tgUser} = useTelegram()
@@ -63,6 +66,7 @@ const FriendsPage = () => {
                 text={'поделиться ссылкой'}
                 borderRadius={10}
                 marginBottom={20}
+                href={`https://t.me/share/url?url=${shareUrl}&text=${shareText}`}
             />
 
             <div className="friends">

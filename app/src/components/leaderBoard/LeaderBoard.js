@@ -1,11 +1,13 @@
 import './leaderBoard.css'
 import {useTelegram} from "../../hooks/useTelegram";
-
+import {getAvatarByName} from "../../utils/getAvatarByName";
 
 const LeaderBoard = (props) => {
 
     const {tgUser} = useTelegram()
     const userId = tgUser?.id || 1072604443;
+
+
 
     return(
         <div className="leader-board-container">
@@ -31,7 +33,7 @@ const LeaderBoard = (props) => {
 
                         <p className="name">
                             {user.user_name}
-                            <img src={user?.avatar} alt="нет картинки - нет аватарки"/>
+                            <img src={getAvatarByName(user.avatar_name)} alt="нет картинки - нет аватарки"/>
                         </p>
 
 

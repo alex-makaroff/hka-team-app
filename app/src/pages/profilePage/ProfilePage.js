@@ -18,26 +18,27 @@ import fight from '../../images/fight.png'
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {useTelegram} from "../../hooks/useTelegram";
+import {getAvatarByName} from "../../utils/getAvatarByName";
 
 
 const avatarList = [
     {
+        avatar_name: 'no-ava',
         name: 'без авы',
-        ava: baseAvatar,
     },
 
     {
+        avatar_name: 'beta-ava',
         name: 'ава бета-тестера',
-        ava: baseAvatar,
     },
 
     {
+        avatar_name: 'shisha-ava',
         name: 'крупная шишка',
-        ava: baseAvatar,
     },
     {
+        avatar_name: 'jerremy-ava',
         name: 'убитая джереми',
-        ava: baseAvatar,
     },
 
 
@@ -52,6 +53,7 @@ const ProfilePage = () => {
     const [dailyRewardDay, setDailyRewardDay] = useState(1);
     const [isDailyRewardCollected, setIsDailyRewardCollected] = useState(false);
     const [money, setMoney] = useState(0);
+    const [avatar, setAvatar] = useState(baseAvatar);
 
 
     const {tgUser} = useTelegram()
@@ -92,6 +94,13 @@ const ProfilePage = () => {
             .catch(error => {
                 console.error(error);
             });
+        axios.get(`${process.env.REACT_APP_API_URL}/api/user/${userId}/ava`)
+            .then(response => {
+                setAvatar(getAvatarByName(response.data[0].avatar_name));
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }, [userId]);
 
     const dailyArr = [
@@ -108,7 +117,7 @@ const ProfilePage = () => {
                 <div className="up-side-container">
                     <div className='up-side'>
                         <UserInfo
-                            avatar={baseAvatar}
+                            avatar={avatar}
                             coin={coin}
                             balance={money}
                             name={user[0].user_name}
@@ -240,9 +249,29 @@ const ProfilePage = () => {
                         <div className='smf'>
                             <div className="ava-list">
                                 {avatarList.map((avatar) => {
+
+                                    const changeAva = () => {
+                                        axios.post(`${process.env.REACT_APP_API_URL}/api/user/${userId}/changeAva/${avatar.avatar_name}`)
+                                            .then(response => {
+                                                setAvatar(getAvatarByName(response.data[0].avatar_name));
+
+                                                axios.get(`${process.env.REACT_APP_API_URL}/api/leaderboard`)
+                                                    .then(response => {
+                                                        setLeaderboard(response.data);
+                                                    })
+                                                    .catch(error => {
+                                                        console.error(error);
+                                                    })
+
+                                            })
+                                            .catch(error => {
+                                                console.error(error);
+                                            });
+                                    }
+
                                     return(
                                         <div className='change-ava-item'>
-                                            <img src={avatar.ava} alt="avatar" />
+                                            <img src={getAvatarByName(avatar.avatar_name)} alt="avatar" />
                                             {avatar.name}
                                             <Button
                                                 width={75}
@@ -250,6 +279,8 @@ const ProfilePage = () => {
                                                 fontSize={8}
                                                 text={'использовать'}
                                                 borderRadius={5}
+                                                onClick={changeAva}
+                                                buttonType={'using'}
                                             />
                                         </div>
                                     )

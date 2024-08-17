@@ -9,17 +9,25 @@ import Preloader from "./components/preloader/Preloader";
 import FightPage from "./pages/fightPage/FightPage";
 import {useTelegram} from "./hooks/useTelegram";
 
-import { TonConnectUIProvider } from '@tonconnect/ui-react';
-import Header from './Header';
+// import { TonConnectUIProvider } from '@tonconnect/ui-react';
+// import Header from './components/smf for ton connect/Header';
+// import {TxForm} from "./components/TxForm/TxForm";
+
+// import TonConnectUI from '@tonconnect/ui'
+//
+// const tonConnectUI = new TonConnectUI({
+//     manifestUrl: config.manifestUrl,
+//     // buttonRootId: '<YOUR_CONNECT_BUTTON_ANCHOR_ID>'
+// });
 
 
 const App = () => {
 
-    const {tg, user} = useTelegram();
+    const {tg} = useTelegram();
 
-    // tg.expand()
-    console.log('tg', tg);
-    console.log('user', user);
+    tg.expand()
+    // console.log('tg', tg);
+    // console.log('user', user);
 
     return(
         <>
@@ -31,18 +39,25 @@ const App = () => {
             {/*    {JSON.stringify(user.username)}*/}
             {/*</div>*/}
 
-            {/*<Preloader/>*/}
-            {/*<Routes>*/}
-            {/*    <Route path="/" element={<ProfilePage/>} />*/}
-            {/*    <Route path="/friends" element={<FriendsPage/>} />*/}
-            {/*    <Route path="/shisha" element={<ShishaPage/>} />*/}
-            {/*    <Route path="/joint" element={<JointPage/>} />*/}
-            {/*    <Route path="/fight" element={<FightPage/>} />*/}
-            {/*</Routes>*/}
-            <TonConnectUIProvider manifestUrl="https://hkateam.online/tonconnect-manifest.json">
-                <Header
-                />
-            </TonConnectUIProvider>
+            <Preloader/>
+            <Routes>
+                <Route path="/" element={<ProfilePage/>} />
+                <Route path="/friends" element={<FriendsPage/>} />
+                <Route path="/shisha" element={<ShishaPage/>} />
+                <Route path="/joint" element={<JointPage/>} />
+                <Route path="/fight" element={<FightPage/>} />
+            </Routes>
+
+            {/*<TonConnectUIProvider manifestUrl={config.manifestUrl}>*/}
+            {/*    <Header*/}
+            {/*        width={100}*/}
+            {/*        height={33}*/}
+            {/*        fontSize={8}*/}
+            {/*        text={'подключить кошелек'}*/}
+            {/*        borderRadius={5}*/}
+            {/*    />*/}
+
+            {/*</TonConnectUIProvider>*/}
         </>
 
     )
