@@ -1,6 +1,5 @@
 import './button.css'
 import {Link} from "react-router-dom";
-import b from '../../images/btn-bg-black.png'
 
 const Button = (props) => {
 
@@ -67,7 +66,7 @@ const Button = (props) => {
     if (props.onClick) {
         return(
             <>
-                <button disabled={buttonTypeSettings(props.buttonType).disabled} onClick={props.onClick} style={styles} className={props.buttonType ? `button ${buttonTypeSettings(props.buttonType).className}` : "button"}>
+                <button disabled={props.buttonType ? buttonTypeSettings(props.buttonType).disabled : false} onClick={props.onClick} style={styles} className={props.buttonType ? `button ${buttonTypeSettings(props.buttonType).className}` : "button"}>
                     {props.text}
                 </button>
             </>
